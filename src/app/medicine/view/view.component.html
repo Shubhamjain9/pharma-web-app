@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-sm">
+    <h4>Update Medicine</h4>
+  </div>
+</div>
+<hr />
+<div class="jumbotron col-sm-8" style="margin:auto">
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">Medicine Name</label>
+    <div class="col-sm-10">
+      <label for="" class="col-sm-12 col-form-label">{{
+        (medicine$ | async).medicineName
+      }}</label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">Medicine Description</label>
+    <div class="col-sm-10">
+      <label for="" class="col-sm-12 col-form-label">{{
+        (medicine$ | async).medicineDesc
+      }}</label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">Quantity</label>
+    <div class="col-sm-10">
+      <label for="" class="col-sm-12 col-form-label">{{
+        (medicine$ | async).quantity
+      }}</label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-4">
+      <label for="" class="col-sm-12 col-form-label">{{
+        (medicine$ | async).price
+      }}</label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">&nbsp;</label>
+    <div class="col-sm-10">
+      <button
+        type="button"
+        class="btn btn-success fa fa-pencil-square-o"
+        (click)="editMedicine(medicine)"
+      >
+        &nbsp;Edit</button
+      >&nbsp;
+      <button
+        type="button"
+        class="btn btn-danger fa fa-ban"
+        routerLink="/medicine"
+      >
+        &nbsp;Cancel
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm">
+    <h4>Medicines List</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm">
+    <button
+      class="btn btn-primary fa fa-file fa-sm action label"
+      style="float: right;"
+      routerLink="add"
+    >
+      Add New Medicine
+    </button>
+  </div>
+</div>
+<br />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Medicine Name</th>
+      <th scope="col">Medicine Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let medicine of medicines | async; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ medicine.medicineName }}</td>
+      <td>{{ medicine.medicineDesc }}</td>
+      <td>{{ medicine.quantity }}</td>
+      <td>{{ medicine.price }}</td>
+      <td>
+        <button
+          class=" fa fa-pencil-square-o"
+          (click)="viewMedicine(medicine)"
+        ></button>
+      </td>
+      <td>
+        <button
+          class="delete-label fa fa-trash-o"
+          (click)="deleteMedicine(medicine)"
+        ></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
