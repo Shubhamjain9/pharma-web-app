@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "dev": "ng serve",
+    "start": "nodemon src/app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -22,7 +23,6 @@
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
-    "nodemon": "^1.19.4",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
