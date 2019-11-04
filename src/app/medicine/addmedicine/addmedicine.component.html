@@ -1,112 +1,115 @@
-<div class="row">
-  <div class="col-sm">
-    <h3>Add Medicine</h3>
-    <hr />
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3>Add Medicine</h3>
+      <hr />
+    </div>
   </div>
+
+  <form [formGroup]="medicineForm" class="test">
+    <div class="jumbotron col-sm-10" style="margin: auto">
+      <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">Medicine Name</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="medicineName"
+          />
+          <span
+            *ngIf="
+              !medicineForm.get('medicineName').valid &&
+              medicineForm.get('medicineName').touched
+            "
+            class="help-block"
+          >
+            Name is Required
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Medicine Description" class="col-sm-2 col-form-label"
+          >Medicine Description</label
+        >
+        <div class="col-sm-10">
+          <textarea
+            name=""
+            id=""
+            matInput
+            rows="3"
+            cols="10"
+            class="form-control"
+            formControlName="medicineDesc"
+          ></textarea>
+          <span
+            *ngIf="
+              !medicineForm.get('medicineDesc').valid &&
+              medicineForm.get('medicineDesc').touched
+            "
+            class="help-block"
+          >
+            Description is Required
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Quantity" class="col-sm-2 col-form-label">Quantity</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="quantity" />
+          <span
+            *ngIf="
+              medicineForm.get('quantity').invalid &&
+              medicineForm.get('quantity').touched &&
+              medicineForm.get('quantity').errors
+            "
+            class="help-block"
+          >
+            Quantity is Required and it should be number
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Price" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="price" />
+          <span
+            *ngIf="
+              medicineForm.get('price').invalid &&
+              medicineForm.get('price').touched &&
+              medicineForm.get('price').errors
+            "
+            class="help-block"
+          >
+            Price is Required and it should be number
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">&nbsp;</div>
+      <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">&nbsp;</label>
+        <div class="col-sm-10">
+          <button
+            type="button"
+            class="btn btn-success fa fa-floppy-o"
+            (click)="save($event)"
+            [disabled]="!medicineForm.valid"
+          >
+            &nbsp;Save</button
+          >&nbsp;
+
+          <button
+            type="button"
+            class="btn btn-danger fa fa-ban"
+            routerLink="/medicine"
+          >
+            &nbsp;Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
-
-<form [formGroup]="medicineForm">
-  <div class="jumbotron col-sm-10" style="margin: auto">
-    <div class="form-group row">
-      <label for="" class="col-sm-2 col-form-label">Medicine Name</label>
-      <div class="col-sm-10">
-        <input
-          type="text"
-          class="form-control"
-          formControlName="medicineName"
-        />
-        <span
-          *ngIf="
-            !medicineForm.get('medicineName').valid &&
-            medicineForm.get('medicineName').touched
-          "
-          class="help-block"
-        >
-          Name is Required
-        </span>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="Medicine Description" class="col-sm-2 col-form-label"
-        >Medicine Description</label
-      >
-      <div class="col-sm-10">
-        <textarea
-          name=""
-          id=""
-          cols="20"
-          rows="20"
-          class="form-control"
-          formControlName="medicineDesc"
-        ></textarea>
-        <span
-          *ngIf="
-            !medicineForm.get('medicineDesc').valid &&
-            medicineForm.get('medicineDesc').touched
-          "
-          class="help-block"
-        >
-          Description is Required
-        </span>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="Quantity" class="col-sm-2 col-form-label">Quantity</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" formControlName="quantity" />
-        <span
-          *ngIf="
-            medicineForm.get('quantity').invalid &&
-            medicineForm.get('quantity').touched &&
-            medicineForm.get('quantity').errors
-          "
-          class="help-block"
-        >
-          Quantity is Required and it should be number
-        </span>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="Price" class="col-sm-2 col-form-label">Price</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" formControlName="price" />
-        <span
-          *ngIf="
-            medicineForm.get('price').invalid &&
-            medicineForm.get('price').touched &&
-            medicineForm.get('price').errors
-          "
-          class="help-block"
-        >
-          Price is Required and it should be number
-        </span>
-      </div>
-    </div>
-
-    <div class="form-group row">&nbsp;</div>
-    <div class="form-group row">
-      <label for="" class="col-sm-2 col-form-label">&nbsp;</label>
-      <div class="col-sm-10">
-        <button
-          type="button"
-          class="btn btn-success fa fa-floppy-o"
-          (click)="save($event)"
-          [disabled]="!medicineForm.valid"
-        >
-          &nbsp;Save</button
-        >&nbsp;
-
-        <button
-          type="button"
-          class="btn btn-danger fa fa-ban"
-          routerLink="/medicine"
-        >
-          &nbsp;Cancel
-        </button>
-      </div>
-    </div>
-  </div>
-</form>

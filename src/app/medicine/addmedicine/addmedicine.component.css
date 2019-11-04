@@ -9,3 +9,11 @@ textarea.ng-invalid.ng-touched {
 .help-block {
   color: red;
 }
+
+.container.test {
+  max-height: 70%;
+}
+
+label {
+  font-size: 17px;
+}

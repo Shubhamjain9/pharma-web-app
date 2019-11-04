@@ -6,3 +6,7 @@
 .navbar-wrap {
   box-shadow: 10px 10px 25px rgb(175, 164, 164);
 }
+
+.row content {
+  max-height: 80%;
+}
